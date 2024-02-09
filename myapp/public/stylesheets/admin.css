@@ -1,0 +1,113 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.main-container {
+    position: absolute;
+    margin: 3% 5% 4%;
+    display: grid;
+    grid-template-areas: "teachers week";
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 50px;
+    height: 75vh;
+    width: 90%;
+    z-index: 1;
+}
+
+.teachers {
+    grid-area: teachers;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, .5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+}
+
+.teachers h2 {
+    margin-top: 40px;
+    font-size: 2em;
+}
+
+.teachers img {
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+.teacher {
+    flex: 0.5 0 0;
+    text-align: center;
+    width: 50%;
+    padding: 10px;
+    background-color: rgb(125, 67, 158);
+    color: #fff;
+}
+
+.week {
+    grid-area: week;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.day {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.guard {}
+
+
+@media screen and (max-width: 1200px) {
+
+    .main-container {
+        display: grid;
+        grid-template-areas: "teachers" "week";
+        grid-template-columns: 1fr;
+    }
+
+    .teachers {
+        text-align: center;
+        grid-area: teachers;
+        padding: 10px;
+        border-radius: 50px 50px 20px 20px;
+    }
+
+    .teachers h2 {
+        margin-top: 0;
+    }
+
+    .teachers img {
+        border-radius: 100%;
+        width: 170px;
+    }
+
+    .week {
+        grid-area: week;
+        display: flex;
+        text-align: center;
+        border-radius: 20px 20px 50px 50px;
+        padding: 40px;
+    }
+
+    .day {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #000;
+    }
+
+}

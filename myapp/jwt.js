@@ -1,14 +1,13 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const jsonfile = require('jsonfile');
 
 const app = express();
 app.use(express.json());
 
-const SECRET_KEY = 'your-secret-key'; // Replace with your own secret key
+const SECRET_KEY = process.env.SECRET_KEY; // Replace with your own secret key
 
 app.post('/login', async (req, res) => {
-    const users = await jsonfile.readFile('./users.json');
+    const users = await fs.readFile('./users.json');
     const user = users.find(u => u.name === req.body.name && u.password === req.body.password);
 
     if (user) {
@@ -19,9 +18,10 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.get('/dashboard', verifyToken, (req, res) => {
+app.get('/admin', verifyToken, (req, res) => {
     // If we reach this point, the user is authenticated
     res.send('Welcome to the dashboard!');
+    res.render('admin');
 });
 
 function verifyToken(req, res, next) {
@@ -36,7 +36,7 @@ function verifyToken(req, res, next) {
     } catch (err) {
         return res.status(401).send('Invalid Token');
     }
-    return next();
+    return next(); // i don´t want to return anything, just continue with the next middleware
 }
 
 app.listen(3000, () => console.log('Server is running on port 3000'));

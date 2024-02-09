@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node basicAuth.js",
+    "start": "node app.js",
     "devStart": "nodemon login-app.js"
   },
   "dependencies": {

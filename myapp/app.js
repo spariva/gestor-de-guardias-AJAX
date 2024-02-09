@@ -1,6 +1,16 @@
-const createError = require('http-errors');
-const express = require('express');
+//Paths:
 const path = require('path');
+const basePath = __dirname;
+const publicPath = path.join(basePath, 'public');
+const indexPath = path.join(basePath, 'public/index.html');
+const envPath = path.join(basePath, '.env');
+//Dotenv:
+require('dotenv').config({path: envPath});
+//Express:
+const express = require('express');
+const fs = require('fs');
+const PORT = process.env.PORT || 3000;
+const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 

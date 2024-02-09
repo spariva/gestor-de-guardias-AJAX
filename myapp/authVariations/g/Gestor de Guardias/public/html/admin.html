@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <div id="pagina">
+        <div id="mostrarFecha"><b><span id="fechaActual"></span></b>
+        </div>
+
+        <div><button id="mostrarFormulario">Añadir Guardia</button></div>
+
+        <div class="formulario hidden">
+            <form action="/anadirGuardia" method="POST">
+                <div id="listadoUsuarios">
+                    Profesor: <select id="listaFormProfesores" name="profesor" required></select><br>
+                </div>
+                Clase: <input type="text" name="clase" required>
+                <br>
+                Dia: <select name="dia" required>
+                    <option value="lunes">Lunes</option>
+                    <option value="martes">Martes</option>
+                    <option value="miercoles">Miercoles</option>
+                    <option value="jueves">Jueves</option>
+                    <option value="viernes">Viernes</option>
+                </select><br>
+                Hora Inicio:<input type="time" name="horaInicio" required><br>
+                Hora Fin:<input type="time" name="horaFin" required>
+                <br>
+                Observaciones: <textarea name="observaciones" required></textarea><br>
+                <button type="submit">Añadir Guardia</button>
+            </form>
+        </div>
+
+        <div class="formProfesores hidden">
+            <form action="/anadirProfesor" method="POST">
+                Profesor: <input type="text" name="nombreProfesor" required><br>
+                Contraseña: <input type="text" name="contrasenaNueva" required><br>
+                Color: <input type="color" name="color" required>
+                <button type="submit">Registrar Profesor</button>
+            </form>
+        </div>
+
+        <div class="formEliminarProfesores hidden">
+            <form action="/eliminarProfesor" method="POST">
+                Profesor a eliminar: <select id="listaFormEliminarProfesores" name="profesor" required></select><br>
+                <button type="submit">Eliminar Profesor</button>
+            </form>
+        </div>
+
+        <div id="columnas">
+            <div id="listadoProfesores">
+                <h3>Profesores</h3>
+                <div><button id="anadirProfesor">Añadir Profesor</button>
+                    <button id="eliminarProfesor">Eliminar Profesor</button><br><br>
+                </div>
+
+            </div>
+            <div id="horarios">
+                <div class="dia" id="lunes">
+                    <h2>Lunes</h2>
+                </div>
+
+                <div class="dia" id="martes">
+                    <h2>Martes</h2>
+                </div>
+
+                <div class="dia" id="miercoles">
+                    <h2>Miercoles</h2>
+                </div>
+
+                <div class="dia" id="jueves">
+                    <h2>Jueves</h2>
+                </div>
+
+                <div class="dia" id="viernes">
+                    <h2>Viernes</h2>
+                </div>
+            </div>
+        </div>
+        <div id="zonaSugerencias">
+            <div id="tituloSugerencias">
+                <h3>Sugerencias de Profesores</h3>
+            </div>
+            <div id="sugerenciasProfesores"></div>
+        </div>
+        <div id="zonaDisponibilidad">
+            <div class="formulario">
+                <form id="formDispo" action="/disponibilidadProfesor" method="POST">
+                    <div id="listadoUsuarios">
+                        Ver disponiblidad de: <br><br><select id="listaDisponibilidadProfesores" name="nombreProfesor"
+                            required></select><br><br>
+                        <button id="verDisponibilidadBut" type="submit">Ver disponibilidad</button>
+
+                    </div>
+                </form>
+            </div>
+
+            <div id="disponibilidad">
+                <div id="diasDisponibles">
+                    <div class="dia" id="slunes">
+                    </div>
+                    <div class="dia" id="smartes">
+                    </div>
+                    <div class="dia" id="smiercoles">
+                    </div>
+                    <div class="dia" id="sjueves">
+                    </div>
+                    <div class="dia" id="sviernes">
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    </div>
+    <script src="/js/admin.js"></script>
+</body>
+
+</html>

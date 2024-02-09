@@ -1,0 +1,334 @@
+/** Color schema based on my wireframe */
+@import url('https://fonts.googleapis.com/css?family=Playpen+Sans');
+
+:root {
+    /* Cards */
+    --turquesa-oscuro: #3bc9db;
+    --turquesa-claro: #99e9f2;
+    --menta-claro: #96f2d7;
+    --borde-menta: #099268;
+    --navbar-rosita: #ffc9c9;
+    /* Nav */
+    --navbar-azulito: #a5d8ff;
+    --navbar-texto: #495057;
+    --navbar-azulito-oscuro: #4dabf7;
+    --fondo-rosa: #fcc2d7;
+    --fondo-menta: #ebfbee;
+    --dark-color: #343a40;
+    /* Bonus card */
+    --fondo-carta: #eebefa;
+    --amarillo-carta: #ffec99;
+    --verde-carta: #2f9e44;
+    /* Instructions */
+    --amarillo-fondo: #fff9db;
+}
+
+html,
+body {
+    font-family: 'Playpen Sans', sans-serif;
+}
+
+.botonNav {
+    background-color: var(--navbar-azulito);
+    color: var(--navbar-texto);
+    border-color: var(--navbar-azulito-oscuro);
+    background-position: center;
+    cursor: pointer;
+    transition: background 0.8s;
+}
+
+.botonNav:hover,
+.botonNav:active {
+    background-color: var(--navbar-azulito-oscuro);
+    border-color: var(--navbar-azulito-oscuro);
+    box-shadow: 1px 2px 6px 3px var(--navbar-azulito);
+    color: white;
+}
+
+/* div{
+    overflow: hidden;
+} */
+
+img {
+    max-width: 90%;
+    height: auto;
+}
+
+.imgContainer {
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.imgContainer img {
+    /* max-width: 200px;
+    height: 200px; */
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+@media (max-width: 900px) {
+    .imgContainer img {
+        max-width: 50px;
+    }
+
+    .imgContainer {
+        height: 50px;
+    }
+}
+
+
+.player img {
+    max-width: 200px;
+    height: 200px;
+    aspect-ratio: 1/1;
+    border-radius: 1000px;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player {
+    padding: 4px;
+    background-color: var(--menta-claro);
+    height: 180px;
+    width: auto;
+    aspect-ratio: 1/1;
+    object-fit: scale-down;
+}
+
+@media (max-width: 900px) {
+    .player img {
+        max-width: 100px;
+    }
+
+    .player {
+        height: 100px;
+    }
+}
+
+/** Cards and their effects: */
+.card {
+    position: relative;
+    width: 120px;
+    height: 150px;
+    cursor: pointer;
+}
+
+/* Para poner la imagen de carta, pero no me da tiempo a cuadrarlo.
+.card-front{
+    background-image: url(../assets/img/cardFront.png);
+    max-width: 100%;
+    height: 100%;
+}
+
+.card-front img{
+    max-width: 100px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.card-front,
+.card-back {
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--turquesa-claro);
+    border: 1px solid var(--navbar-texto);
+    transition: transform .8s cubic-bezier(0.21, -0.49, 1, 0.26);
+    backface-visibility: hidden;
+}
+
+.card-back {
+    font-size: 28pt;
+    text-align: center;
+    line-height: 100px;
+    background: #FDF8E6;
+    transform: rotateY(180deg) rotateZ(120deg);
+    user-select: none;
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg) rotateZ(40deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.card:hover {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1rem 3rem var(--turquesa-oscuro);
+}
+
+.card:hover::after {
+    -webkit-transform: scaleX(1.4) scaleY(1.6);
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+/** Board */
+
+.paused {
+    color: var(--amarillo-fondo);
+}
+
+.stats {
+    color: #FFF;
+    font-size: 14pt;
+    text-align: center;
+}
+
+.board-container {
+    position: relative;
+}
+
+.board,
+.win {
+    transition: transform ease-in-out 1s;
+    backface-visibility: hidden;
+}
+
+.board {
+    overflow: hidden;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 20px;
+}
+
+.board-container.flipped .board {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.board-container.flipped .win {
+    transform: rotateY(0) rotateZ(0);
+}
+
+/* Win animation */
+.win {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: var(--amarillo-fondo);
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.win-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 21pt;
+    color: var(--navbar-texto);
+}
+
+/* I want to make an animation which shuffles the cards, it stacks them and then it distributes them again. 
+    I want them to apPly in a class, so I can call it when I want.
+    I want to shuffle the cards at the beginning of the game. 
+*/
+/* Shuffle animation: apart from rotate I want it to translate it all the cards to the center*/
+@keyframes shuffle {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(0, -100%);
+    }
+
+    50% {
+        transform: translate(0, -100%) rotate(90deg);
+    }
+
+    75% {
+        transform: translate(0, -100%) rotate(180deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+
+@keyframes animated_div {
+    0% {
+        transform: rotate(0deg);
+        left: 0px;
+    }
+
+    25% {
+        transform: rotate(20deg);
+        left: 0px;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        left: 500px;
+    }
+
+    55% {
+        transform: rotate(0deg);
+        left: 500px;
+    }
+
+    70% {
+        transform: rotate(0deg);
+        left: 500px;
+        background: #1ec7e6;
+    }
+
+    100% {
+        transform: rotate(-360deg);
+        left: 0px;
+    }
+}
+
+/* In the shuffle class, apply the animation */
+.shuffled {
+    animation: shuffle 1s ease-in-out alternate 2 ; 
+}
+
+.shuffled-infinite{
+    animation: shuffle 3s ease-in-out alternate infinite; 
+}
+
+
+/* @keyframes shuffle {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(0, -100%);
+    }
+    50% {
+        transform: translate(0, -100%) rotate(90deg);
+    }
+    75% {
+        transform: translate(0, -100%) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+} */
+
+/* In the shuffle class I want the animation to */
+.shuffle {
+    animation: shuffle 1s ease-in-out alternate;
+}

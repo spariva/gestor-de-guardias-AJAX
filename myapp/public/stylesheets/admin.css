@@ -28,6 +28,7 @@ body {
     background: rgba(0, 0, 0, .5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    overflow: hidden;
 }
 
 .teachers h2 {
@@ -45,7 +46,7 @@ body {
     text-align: center;
     width: 50%;
     padding: 10px;
-    background-color: rgb(125, 67, 158);
+    background-color: rgba(31, 52, 121, 0.753);
     color: #fff;
 }
 
@@ -63,12 +64,26 @@ body {
     padding: 10px;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
+    overflow: hidden;
 }
 
-.guard {}
+.guard {
+    flex: 0 2 5%;
+    text-align: center;
+    width: 80%;
+    padding: 10px;
+    background-color: rgb(183, 106, 202);
+}
+
+.guard-free {
+    flex: 0 2 5%;
+    text-align: center;
+    width: 80%;
+    padding: 10px;
+    background-color: rgb(123, 217, 230);
+}
 
 
 @media screen and (max-width: 1200px) {
@@ -84,6 +99,7 @@ body {
         grid-area: teachers;
         padding: 10px;
         border-radius: 50px 50px 20px 20px;
+            overflow: hidden;
     }
 
     .teachers h2 {

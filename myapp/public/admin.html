@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="./stylesheets/normalize.css" />
         <link rel="stylesheet" href="./stylesheets/admin.css" />
         <link rel="stylesheet" href="./stylesheets/bootstrap-colors.css" />
+        <script src="scripts/admin.js" defer></script>
     </head>
 
     <body class="bg-navy-dark">
@@ -42,7 +43,7 @@
                         </li>
                         <li class="nav-item p-3">
                             <button class="btn me-2 botonNav" type="button">
-                                <a class="nav-link display-3 text-center botonNav" href=".html">Admin</a></button>
+                                <a class="nav-link display-3 text-center botonNav" href="teacher.html">Profes</a></button>
                         </li>
                     </ul>
                 </div>
@@ -50,16 +51,34 @@
         </div>
         <!--? Main -->
         <main class="p-2 mt-xl-3 mt-5">
-
             <div class="main-container">
                 <div class="teachers bg-navy">
                     <div class="teacher">Profesor 1</div>
                     <div class="teacher">Profesor 2</div>
                     <div class="teacher">Profesor 3</div>
+                    <div class="teacher">Profesor 4</div>
                     <div class="teacher">Profesor 5</div>
                     <div class="teacher">Profesor 6</div>
-                    <div class="teacher">Profesor 7</div>
-                    <div class="teacher">Botón</div>
+                    <div class="teacher" id="addPopup">Añadir guardia</div>
+                        <form id="guardiaForm" class= "login-box">
+                            <input type="hidden" id="guardiaId">
+                            <div class="user-box">
+                                <input type="text" id="profesor" required>
+                                <label>Profe:</label>
+                            </div>
+                            <div class="user-box">
+                                <input type="date" id="fecha" required>
+                            </div>
+                            <div class="user-box">
+                                <input type="time" id="hora" required>
+                                <label>Hora:</label>
+                            </div>
+                            <div class="user-box">
+                                <input type="text" id="lugar" required>
+                                <label>Lugar:</label>
+                            </div>
+                            <button type="submit" class="login-btn">Añadir</button>
+                        </form>
                 </div>
 
                 <div class="week bg-navy-light">

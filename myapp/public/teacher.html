@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta author="Maki Spariva">
+        <title>Calendario Guardias</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="./stylesheets/normalize.css" />
+        <link rel="stylesheet" href="./stylesheets/admin.css" />
+        <link rel="stylesheet" href="./stylesheets/bootstrap-colors.css" />
+    </head>
+
+    <body class="bg-navy-dark">
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+        <!-- navy-dark navy-light teal indigo-light-->
+
+        <!--? Navbar -->
+        <div class="container pb-5">
+            <nav
+                class="navbar navbar-expand-lg fixed-top border border-primary-subtle border-3 rounded-3 mx-3 mt-2 bg-teal-dark">
+                <div class="container-md">
+                    <a class="navbar-brand" href="#">
+                        link Gestor de Guardias
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse justify-content-evenly me-lg-5 align-items-baseline nav-underline"
+                    id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item p-3">
+                            <button class="btn me-2 botonNav" type="button">
+                                <a class="nav-link display-3 text-center botonNav" href="login.html">Login</a></button>
+                        </li>
+                        <li class="nav-item p-3">
+                            <button class="btn me-2 botonNav" type="button">
+                                <a class="nav-link display-3 text-center botonNav" href=".html">Admin</a></button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--? Main -->
+        <main class="p-2 mt-xl-3 mt-5">
+
+            <div class="main-container">
+                <div class="teachers bg-navy">
+                    <div class="teacher">Profesor 1</div>
+                    <div class="teacher">Profesor 2</div>
+                    <div class="teacher">Profesor 3</div>
+                    <div class="teacher">Profesor 5</div>
+                    <div class="teacher">Profesor 6</div>
+                    <div class="teacher">Profesor 7</div>
+                    <div class="teacher">Botón</div>
+                </div>
+
+                <div class="week bg-navy-light">
+                    <div class="day">
+                        <h2>L</h2>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard-free">Profe <br> hora <br> Lugar</div>
+                        <div class="guard-free">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                    </div>
+                    <div class="day">
+                        <h2>M</h2>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard-free">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                    </div>
+                    <div class="day">
+                        <h2>X</h2>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                    </div>
+                    <div class="day">
+                        <h2>J</h2>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard-free">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                    </div>
+                    <div class="day">
+                        <h2>V</h2>
+                        <div class="guard-free">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                        <div class="guard">Profe <br> hora <br> Lugar</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>

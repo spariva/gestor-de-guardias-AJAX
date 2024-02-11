@@ -8,6 +8,7 @@
     <title>Login Gestor de guardias</title>
     <link rel="stylesheet" href="stylesheets/login.css">
     <link rel="stylesheet" href="stylesheets/normalize.css">
+    <script src="scripts/login.js" defer></script>
   </head>
 
   <body>
@@ -15,18 +16,18 @@
       <h2 class="important-text">Acceso admin:</h2>
       <form>
         <div class="user-box">
-          <input type="text" name="" required="">
+          <input type="text" name="user" required="">
           <label>Usuario</label>
         </div>
         <div class="user-box">
-          <input type="password" name="" required="">
+          <input type="password" name="password" required="">
           <label>Contraseña</label>
         </div>
         <p class="p-text">¿Eres ...?</p>
-        <a href="#" class="login-btn">
+        <a id="adminLogin" class="login-btn">
           Profe
         </a>
-        <a href="#" class="login-btn">
+        <a href="teacher.html" class="login-btn">
           Admin
         </a>
       </form>

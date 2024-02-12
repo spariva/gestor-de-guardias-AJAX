@@ -1,18 +1,18 @@
 //Paths:
 const path = require('path');
-const basePath = __dirname;
+const basePath = path.resolve(__dirname, '.');
 const publicPath = path.join(basePath, 'public');
 // const adminPath = path.join(basePath, 'public/admin.html');
 // const teacherPath = path.join(basePath, 'public/teacher.html');
 // const loginPath = path.join(basePath, 'public/login.html');
 const envPath = path.join(basePath, '.env');
 //Dotenv:
-require('dotenv').config({path: envPath});
+require('dotenv').config({ path: envPath });
 //Express:
 const express = require('express');
 const fs = require('fs').promises;
 const PORT = process.env.PORT || 3000;
-const SECRET_KEY = process.env.SECRET_KEY; // Replace with your own secret key
+const SECRET_KEY = process.env.SECRET_KEY || 'secret'; // Replace with your own secret key
 const createError = require('http-errors'); // error handling
 const cookieParser = require('cookie-parser'); // parse cookies
 const logger = require('morgan'); // log requests
@@ -50,6 +50,7 @@ app.post('/login2', async (req, res) => {
     let users = await fs.readFile('./jsonFiles/users.json');
     users = JSON.parse(users);
     const user = users.find(u => u.name === name && u.password === password);
+    console.log(user);
     console.log(req.body.name);
     if (user) {
         const token = jwt.sign({ id: user.id }, SECRET_KEY, { expiresIn: '1h' });
@@ -83,48 +84,48 @@ app.get('/teacher', (req, res) => {
     res.sendFile(path.join(publicPath, 'teacher.html'));
 });
 
+
+
 //*Error handling:
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// // catch 404 and forward to error handler
+// app.use(function (req, res, next) {
+//     next(createError(404));
+// });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// // error handler
+// app.use(function (err, req, res, next) {
+//     // set locals, only providing error in development
+//     res.locals.message = err.message;
+//     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+//     // render the error page
+//     res.status(err.status || 500);
+//     res.render('error');
+// });
 
 //*CRUD:
 // let guardias = [];
 
 //get use await and async
 app.get('/guardias', async (req, res) => {
-    const guardias = JSON.parse(await fs.readFile('guardias.json', 'utf8'));
+    const guardias = JSON.parse(await fs.readFile('./jsonFiles/guardias.json', 'utf8'));
     res.json(guardias);
 });
 
 app.post('/guardias', (req, res) => {
-    fs.readFile('./jsonFiles/guardias.json', (err, data) => {
+    fs.readFile('./jsonFiles/./jsonFiles/guardias.json', (err, data) => {
         if (err) throw err;
         let guardias = [];
         if (data.toString()) {
             guardias = JSON.parse(data);
         }
 
-        // Ordenar las guardias por día y luego por hora de inicio
         guardias.sort((a, b) => {
             if (a.day < b.day) return -1;
             if (a.day > b.day) return 1;
 
             if (a.time < b.time) return -1;
             if (a.time > b.time) return 1;
-
             return 0;
         });
 
@@ -136,17 +137,18 @@ app.post('/guardias', (req, res) => {
 app.post('/addGuardia', async (req, res) => {
     const guardia = req.body;
     guardia.id = guardias.length + 1;
-    const guardias = JSON.parse(await fs.readFile('guardias.json', 'utf8'));
+    let guardias = [];
+    guardias = JSON.parse(await fs.readFile('./jsonFiles/guardias.json', 'utf8'));
     guardias.push(guardia);
-    await fs.writeFile('guardias.json', JSON.stringify(guardias));
+    await fs.writeFile('./jsonFiles/guardias.json', JSON.stringify(guardias));
     res.json(guardia);
 });
 
 app.delete('/guardias/:id', async (req, res) => {
     const id = req.params.id;
-    let guardias = JSON.parse(await fs.readFile('guardias.json', 'utf8'));
+    let guardias = JSON.parse(await fs.readFile('./jsonFiles/guardias.json', 'utf8'));
     guardias = guardias.filter(guardia => guardia.id != id);
-    await fs.writeFile('guardias.json', JSON.stringify(guardias));
+    await fs.writeFile('./jsonFiles/guardias.json', JSON.stringify(guardias));
     res.sendStatus(200);
 });
 
@@ -165,10 +167,10 @@ app.delete('/guardias/:id', async (req, res) => {
 
 app.put('/guardias/:id', async (req, res) => {
     const id = req.params.id;
-    const guardias = JSON.parse(await fs.readFile('guardias.json', 'utf8'));
+    const guardias = JSON.parse(await fs.readFile('./jsonFiles/guardias.json', 'utf8'));
     const index = guardias.findIndex(guardia => guardia.id == id);
     guardias[index] = req.body;
-    await fs.writeFile('guardias.json', JSON.stringify(guardias));
+    await fs.writeFile('./jsonFiles/guardias.json', JSON.stringify(guardias));
     res.json(req.body);
 });
 

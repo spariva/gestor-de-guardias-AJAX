@@ -28,24 +28,29 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+// view engine setup. not using rn.
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(publicPath));
 
 app.use(express.json());
 
 //*Login:
-app.post('/login', async (req, res) => {
-    const users = await fs.readFile('./jsonFiles/users.json');
-    users = JSON.parse(users);
-    const user = users.find(u => u.name === req.body.name && u.password === req.body.password);
+app.get('/', function (req, res) {
+    res.sendFile(path.join(publicPath, 'login.html'));
+});
 
+app.post('/login2', async (req, res) => {
+    const { name, password } = req.body;
+    let users = await fs.readFile('./jsonFiles/users.json');
+    users = JSON.parse(users);
+    const user = users.find(u => u.name === name && u.password === password);
+    console.log(req.body.name);
     if (user) {
         const token = jwt.sign({ id: user.id }, SECRET_KEY, { expiresIn: '1h' });
         return res.json({ message: 'Login successful!', token });
@@ -74,6 +79,10 @@ function verifyToken(req, res, next) {
     }
 }
 
+app.get('/teacher', (req, res) => {
+    res.sendFile(path.join(publicPath, 'teacher.html'));
+});
+
 //*Error handling:
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -91,32 +100,82 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// app.delete('//:id', (req, res) => {
-//   const id = req.params.id;
+//*CRUD:
+// let guardias = [];
 
-//   fs.readFile('tareas.json', (err, data) => {
-//       if (err) throw err;
+//get use await and async
+app.get('/guardias', async (req, res) => {
+    const guardias = JSON.parse(await fs.readFile('guardias.json', 'utf8'));
+    res.json(guardias);
+});
 
-//       let tareas = JSON.parse(data);
+app.post('/guardias', (req, res) => {
+    fs.readFile('./jsonFiles/guardias.json', (err, data) => {
+        if (err) throw err;
+        let guardias = [];
+        if (data.toString()) {
+            guardias = JSON.parse(data);
+        }
 
-//       // Encontrar el índice de la tarea con el ID correspondiente
-//       const index = tareas.findIndex(tarea => tarea.id == id);
+        // Ordenar las guardias por día y luego por hora de inicio
+        guardias.sort((a, b) => {
+            if (a.day < b.day) return -1;
+            if (a.day > b.day) return 1;
 
-//       // Si la tarea no se encuentra, enviar un error
-//       if (index === -1) {
-//           res.status(404).send('Tarea no encontrada');
-//           return;
-//       }
+            if (a.time < b.time) return -1;
+            if (a.time > b.time) return 1;
 
-//       // Eliminar la tarea del array
-//       tareas.splice(index, 1);
+            return 0;
+        });
 
-//       fs.writeFile('tareas.json', JSON.stringify(tareas), (err) => {
-//           if (err) throw err;
-//           res.sendStatus(200);
-//       });
-//   });
+        res.status(200).send(guardias);
+    });
+});
+
+//post use await and async
+app.post('/addGuardia', async (req, res) => {
+    const guardia = req.body;
+    guardia.id = guardias.length + 1;
+    const guardias = JSON.parse(await fs.readFile('guardias.json', 'utf8'));
+    guardias.push(guardia);
+    await fs.writeFile('guardias.json', JSON.stringify(guardias));
+    res.json(guardia);
+});
+
+app.delete('/guardias/:id', async (req, res) => {
+    const id = req.params.id;
+    let guardias = JSON.parse(await fs.readFile('guardias.json', 'utf8'));
+    guardias = guardias.filter(guardia => guardia.id != id);
+    await fs.writeFile('guardias.json', JSON.stringify(guardias));
+    res.sendStatus(200);
+});
+
+// // Endpoint para eliminar una guardia
+// app.delete('/guardias/:id', (req, res) => {
+//     const { id } = req.params;
+//     const index = guardias.findIndex(g => g.id == id);
+
+//     if (index !== -1) {
+//         guardias = guardias.filter(g => g.id != id);
+//         res.status(204).send(); // No Content
+//     } else {
+//         res.status(404).send('Guardia no encontrada');
+//     }
 // });
+
+app.put('/guardias/:id', async (req, res) => {
+    const id = req.params.id;
+    const guardias = JSON.parse(await fs.readFile('guardias.json', 'utf8'));
+    const index = guardias.findIndex(guardia => guardia.id == id);
+    guardias[index] = req.body;
+    await fs.writeFile('guardias.json', JSON.stringify(guardias));
+    res.json(req.body);
+});
+
+
+
+
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port http://localhost:${PORT}`);

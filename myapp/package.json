@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "devStart": "nodemon login-app.js"
+    "devStart": "nodemon app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

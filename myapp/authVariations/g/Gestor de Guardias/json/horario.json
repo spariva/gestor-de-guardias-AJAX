@@ -1,1 +1,142 @@
-[{"id":1707482891702,"profesor":"Sergio López","clase":"13-A","dia":"lunes","horaInicio":"10:30","horaFin":"11:25","observaciones":"La clase tiene ya deberes asignados, solo es necesaria supervisión","color":"#aa7942"},{"id":1707483198172,"profesor":"Sara Sandoval","clase":"23-F","dia":"martes","horaInicio":"12:00","horaFin":"13:00","observaciones":"Clase de bachillerato, deberán estar preparando la evau con las fichas que se encuentran en el primer cajón","color":"#77bb41"},{"id":1707483271241,"profesor":"Sergio López","clase":"23-F","dia":"martes","horaInicio":"13:00","horaFin":"13:55","observaciones":"Deberán seguir con la preparatoria de la evau de la clase anterior","color":"#aa7942"},{"id":1707483310962,"profesor":"Lucia Mendez","clase":"22-A","dia":"martes","horaInicio":"10:00","horaFin":"11:00","observaciones":"Clase de informatica aplicada ","color":"#be38f3"},{"id":1707483346577,"profesor":"Lucas Martinez","clase":"33-E","dia":"miercoles","horaInicio":"20:00","horaFin":"21:00","observaciones":"Clase sin profesor pero con tarea asignada\r\n","color":"#00c7fc"},{"id":1707483385829,"profesor":"Lucas Martinez","clase":"13-B","dia":"lunes","horaInicio":"10:00","horaFin":"11:00","observaciones":"Clase con profesor enfermo, se necesita profe de ingles","color":"#00c7fc"},{"id":1707483447892,"profesor":"Marcos Rubio","clase":"11-0","dia":"lunes","horaInicio":"12:00","horaFin":"13:00","observaciones":"Clase con profesor de baja ","color":"#aaaaaa"},{"id":1707483506120,"profesor":"Marcos Rubio","clase":"23-F","dia":"miercoles","horaInicio":"10:00","horaFin":"11:00","observaciones":"Sin nada a destacar","color":"#aaaaaa"},{"id":1707483542444,"profesor":"Sara Sandoval","clase":"33-E","dia":"miercoles","horaInicio":"11:00","horaFin":"12:00","observaciones":"Clase necesita profesora de ingles urgente","color":"#77bb41"},{"id":1707491348706,"profesor":"Lucia Mendez","clase":"22-P","dia":"jueves","horaInicio":"10:30","horaFin":"11:30","observaciones":"Clase sin profesor por baja","color":"#be38f3"},{"id":1707491396261,"profesor":"Marcos Rubio","clase":"22-P","dia":"viernes","horaInicio":"11:30","horaFin":"12:30","observaciones":"Clas sin profesor pero con hoja de deberes en la mesa ","color":"#aaaaaa"},{"id":1707491435984,"profesor":"Lucia Mendez","clase":"22-P","dia":"viernes","horaInicio":"10:30","horaFin":"11:30","observaciones":"Clase sin profesor pero con tarea mandada","color":"#be38f3"},{"id":1707491493399,"profesor":"Sara Sandoval","clase":"22-P","dia":"jueves","horaInicio":"20:00","horaFin":"21:00","observaciones":"Guardia para biblioteca","color":"#77bb41"},{"id":1707492971804,"profesor":"Sergio López","clase":"4-A","dia":"viernes","horaInicio":"20:20","horaFin":"21:20","observaciones":"Cubriendo biblioteca","color":"#aa7942"}]
+[
+    {
+        "id": 1707482891702,
+        "profesor": "Sergio López",
+        "clase": "13-A",
+        "dia": "lunes",
+        "horaInicio": "10:30",
+        "horaFin": "11:25",
+        "observaciones": "La clase tiene ya deberes asignados, solo es necesaria supervisión",
+        "color": "#aa7942"
+    },
+    {
+        "id": 1707483198172,
+        "profesor": "Sara Sandoval",
+        "clase": "23-F",
+        "dia": "martes",
+        "horaInicio": "12:00",
+        "horaFin": "13:00",
+        "observaciones": "Clase de bachillerato, deberán estar preparando la evau con las fichas que se encuentran en el primer cajón",
+        "color": "#77bb41"
+    },
+    {
+        "id": 1707483271241,
+        "profesor": "Sergio López",
+        "clase": "23-F",
+        "dia": "martes",
+        "horaInicio": "13:00",
+        "horaFin": "13:55",
+        "observaciones": "Deberán seguir con la preparatoria de la evau de la clase anterior",
+        "color": "#aa7942"
+    },
+    {
+        "id": 1707483310962,
+        "profesor": "Lucia Mendez",
+        "clase": "22-A",
+        "dia": "martes",
+        "horaInicio": "10:00",
+        "horaFin": "11:00",
+        "observaciones": "Clase de informatica aplicada ",
+        "color": "#be38f3"
+    },
+    {
+        "id": 1707483346577,
+        "profesor": "Lucas Martinez",
+        "clase": "33-E",
+        "dia": "miercoles",
+        "horaInicio": "20:00",
+        "horaFin": "21:00",
+        "observaciones": "Clase sin profesor pero con tarea asignada\r\n",
+        "color": "#00c7fc"
+    },
+    {
+        "id": 1707483385829,
+        "profesor": "Lucas Martinez",
+        "clase": "13-B",
+        "dia": "lunes",
+        "horaInicio": "10:00",
+        "horaFin": "11:00",
+        "observaciones": "Clase con profesor enfermo, se necesita profe de ingles",
+        "color": "#00c7fc"
+    },
+    {
+        "id": 1707483447892,
+        "profesor": "Marcos Rubio",
+        "clase": "11-0",
+        "dia": "lunes",
+        "horaInicio": "12:00",
+        "horaFin": "13:00",
+        "observaciones": "Clase con profesor de baja ",
+        "color": "#aaaaaa"
+    },
+    {
+        "id": 1707483506120,
+        "profesor": "Marcos Rubio",
+        "clase": "23-F",
+        "dia": "miercoles",
+        "horaInicio": "10:00",
+        "horaFin": "11:00",
+        "observaciones": "Sin nada a destacar",
+        "color": "#aaaaaa"
+    },
+    {
+        "id": 1707483542444,
+        "profesor": "Sara Sandoval",
+        "clase": "33-E",
+        "dia": "miercoles",
+        "horaInicio": "11:00",
+        "horaFin": "12:00",
+        "observaciones": "Clase necesita profesora de ingles urgente",
+        "color": "#77bb41"
+    },
+    {
+        "id": 1707491348706,
+        "profesor": "Lucia Mendez",
+        "clase": "22-P",
+        "dia": "jueves",
+        "horaInicio": "10:30",
+        "horaFin": "11:30",
+        "observaciones": "Clase sin profesor por baja",
+        "color": "#be38f3"
+    },
+    {
+        "id": 1707491396261,
+        "profesor": "Marcos Rubio",
+        "clase": "22-P",
+        "dia": "viernes",
+        "horaInicio": "11:30",
+        "horaFin": "12:30",
+        "observaciones": "Clas sin profesor pero con hoja de deberes en la mesa ",
+        "color": "#aaaaaa"
+    },
+    {
+        "id": 1707491435984,
+        "profesor": "Lucia Mendez",
+        "clase": "22-P",
+        "dia": "viernes",
+        "horaInicio": "10:30",
+        "horaFin": "11:30",
+        "observaciones": "Clase sin profesor pero con tarea mandada",
+        "color": "#be38f3"
+    },
+    {
+        "id": 1707491493399,
+        "profesor": "Sara Sandoval",
+        "clase": "22-P",
+        "dia": "jueves",
+        "horaInicio": "20:00",
+        "horaFin": "21:00",
+        "observaciones": "Guardia para biblioteca",
+        "color": "#77bb41"
+    },
+    {
+        "id": 1707492971804,
+        "profesor": "Sergio López",
+        "clase": "4-A",
+        "dia": "viernes",
+        "horaInicio": "20:20",
+        "horaFin": "21:20",
+        "observaciones": "Cubriendo biblioteca",
+        "color": "#aa7942"
+    }
+]

@@ -1,1 +1,42 @@
-[{"usuario":"admin","contrasena":"admin","tipo":"admin"},{"usuario":"Sergio López","contrasena":"sergiolopez","tipo":"profesor","horasLibres":2,"color":"#aa7942"},{"usuario":"Sara Sandoval","contrasena":"sarasandoval","tipo":"profesor","horasLibres":2,"color":"#77bb41"},{"usuario":"Lucia Mendez","contrasena":"luciamendez","tipo":"profesor","horasLibres":2,"color":"#be38f3"},{"usuario":"Lucas Martinez","contrasena":"lucasmartinez","tipo":"profesor","horasLibres":3,"color":"#00c7fc"},{"usuario":"Marcos Rubio","contrasena":"marcosrubio","tipo":"profesor","horasLibres":2,"color":"#aaaaaa"}]
+[
+    {
+        "usuario": "admin",
+        "contrasena": "admin",
+        "tipo": "admin"
+    },
+    {
+        "usuario": "Sergio López",
+        "contrasena": "sergiolopez",
+        "tipo": "profesor",
+        "horasLibres": 2,
+        "color": "#aa7942"
+    },
+    {
+        "usuario": "Sara Sandoval",
+        "contrasena": "sarasandoval",
+        "tipo": "profesor",
+        "horasLibres": 2,
+        "color": "#77bb41"
+    },
+    {
+        "usuario": "Lucia Mendez",
+        "contrasena": "luciamendez",
+        "tipo": "profesor",
+        "horasLibres": 2,
+        "color": "#be38f3"
+    },
+    {
+        "usuario": "Lucas Martinez",
+        "contrasena": "lucasmartinez",
+        "tipo": "profesor",
+        "horasLibres": 3,
+        "color": "#00c7fc"
+    },
+    {
+        "usuario": "Marcos Rubio",
+        "contrasena": "marcosrubio",
+        "tipo": "profesor",
+        "horasLibres": 2,
+        "color": "#aaaaaa"
+    }
+]

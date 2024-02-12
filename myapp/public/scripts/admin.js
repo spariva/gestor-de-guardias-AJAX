@@ -13,10 +13,10 @@ guardiaForm.addEventListener('submit', function (event) {
     const data = Object.fromEntries(formData.entries());
     console.log(data);
     const guardia = {
-        profesor: document.getElementById('teacher').value,
-        dia: document.getElementById('day').value,
-        hora: document.getElementById('time').value,
-        lugar: document.getElementById('place').value,
+        teacher: document.getElementById('teacher').value,
+        day: document.getElementById('day').value,
+        time: document.getElementById('time').value,
+        place: document.getElementById('place').value,
     };
     const xmlhr = new XMLHttpRequest();
     xmlhr.onreadystatechange = function () {
@@ -51,7 +51,6 @@ function printGuardias() {
                 guardias.forEach(guardia => {
                     const div = document.createElement('div');
                     div.className = 'guard';
-                    const contentContainer = document.createElement('div');
 
                     let content = `Profe: ${guardia.teacher} <br>`;
                     content += `Hora:  ${guardia.time} <br>`;
@@ -103,7 +102,7 @@ function printGuardias() {
     xmlhr.send();
 }
 
-// function mostrarTodo() {
+// function reload() {
 //     var xmlhr = new XMLHttpRequest();
 //     xmlhr.open('POST', '/guardias', true);
 //     xmlhr.onreadystatechange = function () {

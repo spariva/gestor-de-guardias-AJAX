@@ -60,8 +60,16 @@ app.post('/login2', async (req, res) => {
     }
 });
 
-app.get('/admin', verifyToken, (req, res) => {
+app.get('/admin', (req, res) => {
     // If we reach this point, the user is authenticated
+    fs.readFile('./jsonFiles/guardias.json', (err, data) => {
+        if (err) throw err;
+        let guardias = [];
+        if (data.toString()) {
+            guardias = JSON.parse(data);
+        }
+        res.send(guardias);
+    });
     res.redirect('/admin.html');
 });
 
@@ -135,8 +143,13 @@ app.post('/guardias', (req, res) => {
 
 //post use await and async
 app.post('/addGuardia', async (req, res) => {
-    const guardia = req.body;
-    guardia.id = guardias.length + 1;
+    const guardia = {
+        id: Date.now(),
+        teacher: req.body.teacher,
+        day: req.body.day,
+        time:  req.body.time,
+        place: req.body.place,
+    };
     let guardias = [];
     guardias = JSON.parse(await fs.readFile('./jsonFiles/guardias.json', 'utf8'));
     guardias.push(guardia);

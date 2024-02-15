@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Guardias</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div id="pagina">
+        <div id="saludo"></div>
+        <div id="notificaciones"></div>
+
+        <div id="botones">
+            <button id="mostrarTodo">Mostrar Horarios Completo</button>
+            <button id="mostrarMio">Ver sólo mis guardias</button>
+            <button id="hacerSugerencia">Hacer sugerencia</button>
+            <button id="anadirDisponibilidad">Añadir disponibilidad</button>
+        </div>
+
+        <div class="formulario hidden" id="formDisponibilidad">
+            <form action="/anadirDisponibilidad" method="POST">
+                Profesor: <input type="text" id="profesorDisponibilidad" name="profesor" readonly><br>
+                Dia: <select name="dia" required>
+                    <option value="lunes">Lunes</option>
+                    <option value="martes">Martes</option>
+                    <option value="miercoles">Miercoles</option>
+                    <option value="jueves">Jueves</option>
+                    <option value="viernes">Viernes</option>
+                </select><br>
+                Hora Inicio:<input type="time" name="horaInicio" required><br>
+                Hora Fin:<input type="time" name="horaFin" required>
+                <br>
+                <button type="submit">Guardar disponibilidad</button>
+            </form>
+        </div>
+
+        <div class="formulario hidden" id="formSugerencia">
+            <form action="/anadirSugerencia" method="POST">
+                Profesor: <input type="text" id="profesorSugerencia" name="profesor" readonly><br>
+                Clase: <input type="text" name="clase" required>
+                <br>
+                Dia: <select name="dia" required>
+                    <option value="lunes">Lunes</option>
+                    <option value="martes">Martes</option>
+                    <option value="miercoles">Miercoles</option>
+                    <option value="jueves">Jueves</option>
+                    <option value="viernes">Viernes</option>
+                </select><br>
+                Hora Inicio:<input type="time" name="horaInicio" required><br>
+                Hora Fin:<input type="time" name="horaFin" required>
+                <br>
+                Comentario: <textarea name="observaciones" required></textarea><br>
+                <button type="submit">Enviar sugerencia al admin</button>
+            </form>
+        </div>
+
+        <div id="columnas">
+            <div id="horarios">
+                <div class="dia" id="lunes">
+                    <h2>Lunes</h2>
+                </div>
+
+                <div class="dia" id="martes">
+                    <h2>Martes</h2>
+                </div>
+
+                <div class="dia" id="miercoles">
+                    <h2>Miercoles</h2>
+                </div>
+
+                <div class="dia" id="jueves">
+                    <h2>Jueves</h2>
+                </div>
+
+                <div class="dia" id="viernes">
+                    <h2>Viernes</h2>
+                </div>
+            </div>
+        </div>
+        <h3>Mi Disponibilidad</h3>
+
+        <div id="disponibilidad">
+            <div id="diasDisponibles">
+                <div class="dia" id="disponibilidadLunes">
+                    <h4>Lunes</h4>
+                </div>
+                <div class="dia" id="disponibilidadMartes">
+                    <h4>Martes</h4>
+                </div>
+                <div class="dia" id="disponibilidadMiercoles">
+                    <h4>Miercoles</h4>
+                </div>
+                <div class="dia" id="disponibilidadJueves">
+                    <h4>Jueves</h4>
+                </div>
+                <div class="dia" id="disponibilidadViernes">
+                    <h4>Viernes</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</htmlq 6
